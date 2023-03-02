@@ -1,3 +1,4 @@
+import { ICurrentUser } from './../../shared/types/currentUser.interface';
 import { IBackendErrors } from './../../shared/types/backendError.interface';
 import { createSelector } from '@ngrx/store';
 
@@ -16,3 +17,17 @@ export const validationErrorsSelector = createSelector(
   (authState: IAuthState): IBackendErrors => authState.validationErrors
 );
 
+export const isLoggedInSelector = createSelector(
+  authFeatureSelector,
+  (authState: IAuthState): boolean => authState.isLoggedIn
+);
+
+export const currentUserSelector = createSelector(
+  authFeatureSelector,
+  (authState: IAuthState): ICurrentUser => authState.currentUser
+);
+
+export const isAnonymousSelector = createSelector(
+  authFeatureSelector,
+  (authState: IAuthState): boolean => authState.isLoggedIn == false
+);

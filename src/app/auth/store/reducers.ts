@@ -1,3 +1,4 @@
+import { getCurrentUserAction, getCurrentUserActionFailed, getCurrentUserActionSuccess } from './actions/getCurrentsUser.action';
 import { signInAction, signInFailureAction, signInSuccessAction } from './actions/signIn.action';
 import { createReducer, on, Action } from '@ngrx/store';
 
@@ -67,6 +68,31 @@ const authReducer = createReducer(
       ...state,
       isLoading: false,
       validationErrors: action.errors,
+    })
+  ),
+  on(
+    getCurrentUserAction,
+    (state): IAuthState => ({
+      ...state,
+      isLoading: true,
+    })
+  ),
+  on(
+    getCurrentUserActionSuccess,
+    (state, action): IAuthState => ({
+      ...state,
+      isLoading: false,
+      isLoggedIn: true,
+      currentUser: action.currentUser,
+    })
+  ),
+  on(
+    getCurrentUserActionFailed,
+    (state): IAuthState => ({
+      ...state,
+      isLoading: false,
+      isLoggedIn: false,
+      currentUser: null,
     })
   )
 );

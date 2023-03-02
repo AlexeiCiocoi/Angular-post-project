@@ -1,3 +1,4 @@
+import { GetCurrentUserEffect } from './store/effects/getCurrentUser.effect';
 import { backendErrorMessagesModule } from './../shared/modules/backendErrorMessages/backendErrorMessages.module.ts';
 import { SignInEffect } from './store/effects/signIn.effect';
 import { SignInComponent } from './components/signIn/signIn.component';
@@ -31,7 +32,11 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     StoreModule.forFeature('auth', reducers),
-    EffectsModule.forFeature([RegisterEffect, SignInEffect]),
+    EffectsModule.forFeature([
+      RegisterEffect,
+      SignInEffect,
+      GetCurrentUserEffect,
+    ]),
     backendErrorMessagesModule,
   ],
   declarations: [RegisterComponent, SignInComponent],

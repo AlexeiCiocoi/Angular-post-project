@@ -14,13 +14,16 @@ import { AuthModule } from './auth/auth.module';
 import { environment } from 'src/environments/environment';
 import { PersistanceService } from './shared/services/persistance.service';
 
+import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AuthModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot({ router: routerReducer }),
+    StoreRouterConnectingModule,
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
@@ -28,7 +31,8 @@ import { PersistanceService } from './shared/services/persistance.service';
     }),
     HttpClientModule,
     TopBarModule,
-    GlobalFeedModule
+    GlobalFeedModule,
+    StoreRouterConnectingModule.forRoot(),
   ],
   providers: [
     PersistanceService,

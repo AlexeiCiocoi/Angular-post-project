@@ -1,3 +1,5 @@
+import { ErrorMessageModule } from './../shared//errorMessage/errorMessage.module';
+import { BannerModule } from './../shared/banner/banner.module';
 import { FeedModule } from './../shared/feed/feed.module';
 
 import { RouterModule } from '@angular/router';
@@ -13,7 +15,7 @@ const routes = [
 ];
 
 @NgModule({
-  imports: [CommonModule, FeedModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, FeedModule,BannerModule, RouterModule.forChild(routes)],
   declarations: [GlobalFeedComponent],
 })
 export class GlobalFeedModule {

@@ -4,15 +4,15 @@ import { BannerModule } from './../shared/banner/banner.module';
 import { FeedModule } from './../shared/feed/feed.module';
 
 import { RouterModule } from '@angular/router';
-import { GlobalFeedComponent } from './components/globalFeed/globalFeed.component';
+import {TagFeedComponent } from './components/tagFeed.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FeedTogglerModule } from '../shared/modules/feedToggler/feedToggler.module';
 
 const routes = [
   {
-    path: '',
-    component: GlobalFeedComponent,
+    path: 'tags/:slug',
+    component: TagFeedComponent,
   },
 ];
 
@@ -25,6 +25,6 @@ const routes = [
     PopularTagsModule,
     RouterModule.forChild(routes),
   ],
-  declarations: [GlobalFeedComponent],
+  declarations: [TagFeedComponent],
 })
-export class GlobalFeedModule {}
+export class TagFeedModule {}

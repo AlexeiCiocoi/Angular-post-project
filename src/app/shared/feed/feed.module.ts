@@ -1,3 +1,4 @@
+import { TagModule } from './../modules/tag/tag.module';
 import { PaginationModule } from './../modules/pagination/pagination.module';
 import { LoadingModule } from './../modules/loading/loading.module';
 import { RouterModule } from '@angular/router';
@@ -21,6 +22,7 @@ import { ErrorMessageModule } from '../errorMessage/errorMessage.module';
     LoadingModule,
     ErrorMessageModule,
     PaginationModule,
+    TagModule,
   ],
   declarations: [FeedComponent],
   exports: [FeedComponent],

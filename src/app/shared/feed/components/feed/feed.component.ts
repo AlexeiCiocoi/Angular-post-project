@@ -6,7 +6,7 @@ import { IGetFeedResponse } from './../../types/feed.interface';
 import { Observable, Subscription } from 'rxjs';
 import { GetFeedAction } from './../../store/actions/getFeed.action';
 import { Store, select } from '@ngrx/store';
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { errorSelector, isLoadingSelector } from '../../store/feed.selectors';
 
 import queryString from 'query-string';
@@ -16,7 +16,7 @@ import queryString from 'query-string';
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.css'],
 })
-export class FeedComponent implements OnInit, OnDestroy {
+export class FeedComponent implements OnInit, OnDestroy,OnChanges {
   constructor(
     private store: Store,
     private router: Router,
@@ -40,6 +40,13 @@ export class FeedComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy(): void {
     this.queryParamsSubscription.unsubscribe();
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+      const isApiUrlChanged =
+        !changes['apiUrlProps'].firstChange && changes['apiUrlProps'].currentValue !== changes['apiUrlProps'].previousValue;
+        if(isApiUrlChanged){
+          this.fetchData();  
+        }
   }
 
   initializeValues(): void {

@@ -1,3 +1,4 @@
+import { ArticleModule } from './article/article.module';
 import { TagFeedModule } from './tagFeed/tagFeed.module';
 import { GlobalFeedModule } from './globalFeed/globalFeed.module';
 import { AuthInterceptor } from './shared/services/authInterceptor.service';
@@ -17,6 +18,7 @@ import { PersistanceService } from './shared/services/persistance.service';
 
 import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { YourFeedModule } from './yourFeed/yourFeed.module';
+import { CreateArticleModule } from './createArticle/createArticle.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -37,6 +39,8 @@ import { YourFeedModule } from './yourFeed/yourFeed.module';
     YourFeedModule,
     TagFeedModule,
     StoreRouterConnectingModule.forRoot(),
+    CreateArticleModule,
+    ArticleModule
   ],
   providers: [
     PersistanceService,

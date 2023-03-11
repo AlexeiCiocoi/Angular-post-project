@@ -1,3 +1,4 @@
+import { EditArticleModule } from './editArticle/createArticle.module';
 import { ArticleModule } from './article/article.module';
 import { TagFeedModule } from './tagFeed/tagFeed.module';
 import { GlobalFeedModule } from './globalFeed/globalFeed.module';
@@ -40,7 +41,8 @@ import { CreateArticleModule } from './createArticle/createArticle.module';
     TagFeedModule,
     StoreRouterConnectingModule.forRoot(),
     CreateArticleModule,
-    ArticleModule
+    ArticleModule,
+    EditArticleModule
   ],
   providers: [
     PersistanceService,

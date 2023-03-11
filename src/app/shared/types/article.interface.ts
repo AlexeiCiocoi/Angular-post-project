@@ -11,3 +11,6 @@ export interface IArticleInput {
   tagList: string[];
 }
 
+export interface IArticlePostData {
+  article: IArticleInput;
+}

@@ -1,3 +1,4 @@
+import { UserSettingsModule } from './userSettings/userSetting.module';
 import { EditArticleModule } from './editArticle/createArticle.module';
 import { ArticleModule } from './article/article.module';
 import { TagFeedModule } from './tagFeed/tagFeed.module';
@@ -42,7 +43,8 @@ import { CreateArticleModule } from './createArticle/createArticle.module';
     StoreRouterConnectingModule.forRoot(),
     CreateArticleModule,
     ArticleModule,
-    EditArticleModule
+    EditArticleModule,
+    UserSettingsModule,
   ],
   providers: [
     PersistanceService,

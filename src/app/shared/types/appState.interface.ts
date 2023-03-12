@@ -1,3 +1,4 @@
+import { IUserSettingsState } from './../../userSettings/types/userSettings.interface';
 import { IEditArticleState } from './../../editArticle/types/editArticle.interfaces';
 import { IArticleState } from './../../article/types/article.interface';
 import { IPopularTagsState } from './../modules/popularTags/types/popularTags.types';
@@ -12,4 +13,5 @@ export interface IAppState {
   article: IArticleState;
   createArticle: ICreateArticleState;
   editArticle: IEditArticleState;
+  userSettings: IUserSettingsState;
 }

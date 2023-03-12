@@ -4,7 +4,10 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
-import { ICurrentUser } from './../../shared/types/currentUser.interface';
+import {
+  ICurrentUser,
+  ICurrentUserInput,
+} from './../../shared/types/currentUser.interface';
 import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
 
@@ -34,5 +37,14 @@ export class AuthService {
   getCurrentUser(): Observable<ICurrentUser> {
     const url = environment.apiUrl + '/user';
     return this.http.get(url).pipe(map(this.getUser));
+  }
+  updateCurrentUser(
+    currentUserInput: ICurrentUserInput
+  ): Observable<ICurrentUser> {
+    const url = environment.apiUrl + '/users';
+
+    return this.http
+      .put(url, { user: currentUserInput })
+      .pipe(map(this.getUser));
   }
 }

@@ -1,3 +1,5 @@
+import { LogoutEffect } from './store/effects/logout.effect';
+import { UpdateCurrentUserEffect } from './store/effects/updateCurrentUser.effect';
 import { GetCurrentUserEffect } from './store/effects/getCurrentUser.effect';
 import { backendErrorMessagesModule } from './../shared/modules/backendErrorMessages/backendErrorMessages.module.ts';
 import { SignInEffect } from './store/effects/signIn.effect';
@@ -36,6 +38,8 @@ const routes: Routes = [
       RegisterEffect,
       SignInEffect,
       GetCurrentUserEffect,
+      UpdateCurrentUserEffect,
+      LogoutEffect,
     ]),
     backendErrorMessagesModule,
   ],

@@ -1,3 +1,4 @@
+import { AddToFavoritesModule } from './../modules/addToFavorites/addToFavorites.module';
 import { TagModule } from './../modules/tag/tag.module';
 import { PaginationModule } from './../modules/pagination/pagination.module';
 import { LoadingModule } from './../modules/loading/loading.module';
@@ -23,6 +24,7 @@ import { ErrorMessageModule } from '../errorMessage/errorMessage.module';
     ErrorMessageModule,
     PaginationModule,
     TagModule,
+    AddToFavoritesModule
   ],
   declarations: [FeedComponent],
   exports: [FeedComponent],

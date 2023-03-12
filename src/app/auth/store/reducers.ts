@@ -1,5 +1,14 @@
-import { getCurrentUserAction, getCurrentUserActionFailed, getCurrentUserActionSuccess } from './actions/getCurrentsUser.action';
-import { signInAction, signInFailureAction, signInSuccessAction } from './actions/signIn.action';
+import { logoutAction } from './actions/async.actions';
+import {
+  getCurrentUserAction,
+  getCurrentUserActionFailed,
+  getCurrentUserActionSuccess,
+} from './actions/getCurrentsUser.action';
+import {
+  signInAction,
+  signInFailureAction,
+  signInSuccessAction,
+} from './actions/signIn.action';
 import { createReducer, on, Action } from '@ngrx/store';
 
 import { IAuthState } from './../types/authState.interface';
@@ -8,6 +17,7 @@ import {
   registerFailureAction,
   registerSuccessAction,
 } from './actions/register.action';
+import { updateUserAction } from './actions/updateCurrentUser.action';
 
 const initialState: IAuthState = {
   isLoading: false,
@@ -93,6 +103,20 @@ const authReducer = createReducer(
       isLoading: false,
       isLoggedIn: false,
       currentUser: null,
+    })
+  ),
+  on(
+    updateUserAction,
+    (state, action): IAuthState => ({
+      ...state,
+
+      currentUser: action.currentUserInput,
+    })
+  ),
+  on(
+    logoutAction,
+    (): IAuthState => ({
+      ...initialState,
     })
   )
 );

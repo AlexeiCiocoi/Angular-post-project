@@ -1,3 +1,4 @@
+import { UserProfileModule } from './userProfile/userProfile.module';
 import { UserSettingsModule } from './userSettings/userSetting.module';
 import { EditArticleModule } from './editArticle/createArticle.module';
 import { ArticleModule } from './article/article.module';
@@ -37,6 +38,7 @@ import { CreateArticleModule } from './createArticle/createArticle.module';
     }),
     HttpClientModule,
     TopBarModule,
+    UserProfileModule,
     GlobalFeedModule,
     YourFeedModule,
     TagFeedModule,

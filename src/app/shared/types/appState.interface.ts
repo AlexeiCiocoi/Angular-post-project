@@ -1,3 +1,4 @@
+import { IUserProfileState } from './../../userProfile/types/userProfile.interface';
 import { IUserSettingsState } from './../../userSettings/types/userSettings.interface';
 import { IEditArticleState } from './../../editArticle/types/editArticle.interfaces';
 import { IArticleState } from './../../article/types/article.interface';
@@ -14,4 +15,5 @@ export interface IAppState {
   createArticle: ICreateArticleState;
   editArticle: IEditArticleState;
   userSettings: IUserSettingsState;
+  userProfile: IUserProfileState;
 }
